@@ -58,7 +58,7 @@ REST_REGISTRATION = {
     'RESET_PASSWORD_VERIFICATION_URL' : ('http://127.0.0.1:8000/api_password/'),
     'RESET_PASSWORD_VERIFICATION_EMAIL_REMPLATES' : {'html_body': 'rest_registration/reset_password/body.html', 'subject': 'rest_registration/reset_password/subject.txt'}, 
     'USER_LOGIN_FIELDS' :  ['email'],
-    'SUCCESS_RESPONSE_BULIDER' : ('website.user_serializers.build_default_success_response'),
+    'SUCCESS_RESPONSE_BUILDER' : ('website.user_serializers.build_default_success_response'),
     'LOGIN_SERIALIZER_CLASS' : ('website.user_serializers.UserLoginSerializer'),
     # body, subject 내용 바꿀 시에, 새로 venv 다운받을 시 venv/Lib/site-packages/rest_registration/templates/rest_registration/register/ 수정
 }

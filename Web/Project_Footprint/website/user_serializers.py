@@ -25,3 +25,4 @@ def build_default_success_response(message, status, extra_data):
     return Response(data, status=status)
 
 
+from rest_registration.api.views import login

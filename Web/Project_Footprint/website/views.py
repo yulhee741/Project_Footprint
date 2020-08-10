@@ -267,7 +267,34 @@ def api_password_reset(request):
                 return HttpResponseRedirect('../signin/') 
             else:
                 template = loader.get_template("user_password_find_error.html")
-                res_text = response_message.text
+                # res_text = response_message.text
                 return HttpResponse(template.render({"data" : res_text}))
-        
+
     return render(request, 'user_password_find.html', {'form' : form })
+
+# def user_password_auth(request):
+#     if request.method == 'POST':
+#         form = UserPasswordAuthForm(data=request.POST)
+#         if form.is_valid():
+#             email = form.cleaned_data.get('email')
+#             user = User.objects.filter(email=email)
+#             if user:
+#                 current_site = get_current_site(request)
+#                 # localhost:8000
+#                 password_reset = render_to_string('user_password_reset_email.html', {
+#                     'user': user,
+#                     'domain': current_site.domain,
+#                     'uid': urlsafe_base64_encode(force_bytes(user.pk)).encode().decode(),
+#                     'token': account_activation_token.make_token(user),
+#                 })
+#                 mail_subject = "[SOT] 회원가입 인증 메일입니다."
+#                 user_email = user.username
+#                 email = EmailMessage(mail_subject, password_reset, to=[user_email])
+#                 email.send()
+#                 return HttpResponseRedirect('../user_password_confirm/')
+#             else:
+#                 messages.error(request, 'A user with this email is NOT exists.')
+#                 return HttpResponseRedirect('../user_password_auth/')
+#     else:
+#         form = UserPasswordAuthForm()
+#     return render(request, 'user_password_auth.html', {'form': form})
